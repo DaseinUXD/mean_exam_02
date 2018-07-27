@@ -17,6 +17,11 @@ import {HttpService} from "./http.service";
 // Allows the ability to route in Angular
 
 import { AppRoutingModule } from './app-routing.module';
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { RestaurantRegisterComponent } from './restaurant-register/restaurant-register.component';
+import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
+import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
+import { RestaurantReviewComponent } from './restaurant-review/restaurant-review.component';
 // import { HomeComponent } from './home/home.component';
 // import { ProductsComponent } from './products/products.component';
 // import { ProductsInfoComponent } from './products/products-info/products-info.component';
@@ -28,7 +33,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RestaurantListComponent,
+    RestaurantRegisterComponent,
+    RestaurantDetailsComponent,
+    RestaurantEditComponent,
+    RestaurantReviewComponent
   ],
   imports: [
     BrowserModule,
