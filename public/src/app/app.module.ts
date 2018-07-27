@@ -20,8 +20,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantRegisterComponent } from './restaurant-register/restaurant-register.component';
 import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
-import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
+import { RestaurantEditComponent } from './restaurant-list/restaurant-edit/restaurant-edit.component';
 import { RestaurantReviewComponent } from './restaurant-review/restaurant-review.component';
+import { RouterModule } from "@angular/router";
 // import { HomeComponent } from './home/home.component';
 // import { ProductsComponent } from './products/products.component';
 // import { ProductsInfoComponent } from './products/products-info/products-info.component';
@@ -42,6 +43,7 @@ import { RestaurantReviewComponent } from './restaurant-review/restaurant-review
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule
   ],

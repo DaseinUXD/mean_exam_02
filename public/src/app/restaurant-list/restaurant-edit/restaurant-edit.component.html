@@ -2,21 +2,20 @@
     <div class="row">
         <div class="col-12">
             <p *ngIf="createErrors">These are errors: {{createErrors|json}}</p>
-            <p> Restaurant being detailed: {{restaurant|json}}</p>
+            <p> Restaurant being updated: {{restaurantToUpdate|json}}</p>
         </div>
     </div>
     <div class="row">
         <!--<div class="col-2"></div>-->
         <div class="col-12">
-            <!--<form (submit)="register_restaurant()" class="form">-->
-            <form class="form">
+            <form (submit)="edit_restaurant()" class="form">
                 <fieldset>
-                    <legend class="h2">{{title}} {{restaurant['name']}}</legend>
+                    <legend class="h2">{{title}}</legend>
                     <div class="form-group row">
                         <label for="name" class="col-2 col-form-label h6">Name:</label>
                         <div class="col-4">
                             <input id="name" required type="text" name="name" minlength="3"
-                                   [(ngModel)]="restaurant['name']" #name="ngModel"  class="form-control">
+                                   [(ngModel)]="restaurantToUpdate['name']" #name="ngModel" class="form-control">
                             <div *ngIf="name.invalid" class="alert alert-danger">
                                 <div *ngIf="name['errors']['required']">Name is required.</div>
                                 <div *ngIf="name['errors']['minlength']">Name must be at least 3 characters long.</div>
@@ -27,7 +26,7 @@
                     <div class="form-group row">
                         <label for="cuisine" class="col-2 col-form-label h6">Cuisine:</label>
                         <div class="col-4">
-                            <input id="cuisine" required minlength="3" type="text" name="cuisine" [(ngModel)]="restaurant['cuisine']" #cuisine="ngModel"
+                            <input id="cuisine" required minlength="3" type="text" name="cuisine" [(ngModel)]="restaurantToUpdate['cuisine']" #cuisine="ngModel"
                                    class="form-control">
                             <div *ngIf="cuisine.invalid" class="alert alert-danger">
                                 <div *ngIf="cuisine['errors']['required']">Cuisine is required.</div>
@@ -43,4 +42,8 @@
         <!--<div class="col-2"></div>-->
     </div>
     <div class="row"></div>
+</div>
+
+<div class="row">
+    <p>{{restaurantToEdit}}</p>
 </div>

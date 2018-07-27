@@ -1,3 +1,32 @@
-<p>
-  restaurant-list works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <button class="m-1 btn btn-outline-success" [routerLink]="['restaurant','new']">New Restaurant</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr class="h3">
+                <th>Restaurant</th>
+                <th>Cuisine</th>
+                <th>Actions available</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let restaurant of restaurants">
+                <td class="h4">{{restaurant['name']}}</td>
+                <td class="h4">{{restaurant['cuisine']}}</td>
+                <td>
+                    <button class="m-1 btn btn-outline-primary" [routerLink]="['restaurant', restaurant['_id']]">Read Reviews</button>
+                    <button class="m-1 btn btn-outline-warning" (click)="selectRestaurant(restaurant)">Update</button>
+                    <button class="m-1 btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <app-restaurant-edit *ngIf="selectedRestaurant" [restaurantToEdit]="selectedRestaurant['name']"></app-restaurant-edit>
+
+    </div>
+</div>

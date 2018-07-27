@@ -1,3 +1,45 @@
-<p>
-  restaurant-register works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p *ngIf="createErrors">These are errors: {{createErrors|json}}</p>
+            <p> Restaurant being created: {{newRestaurant|json}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <!--<div class="col-2"></div>-->
+        <div class="col-12">
+            <form (submit)="register_restaurant()" class="form">
+                <fieldset>
+                    <legend class="h2">{{title}}</legend>
+                    <div class="form-group row">
+                        <label for="name" class="col-2 col-form-label h6">Name:</label>
+                        <div class="col-4">
+                            <input id="name" required type="text" name="name" minlength="3"
+                                   [(ngModel)]="newRestaurant['name']" #name="ngModel" class="form-control">
+                            <div *ngIf="name.invalid" class="alert alert-danger">
+                                <div *ngIf="name['errors']['required']">Name is required.</div>
+                                <div *ngIf="name['errors']['minlength']">Name must be at least 3 characters long.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="cuisine" class="col-2 col-form-label h6">Cuisine:</label>
+                        <div class="col-4">
+                            <input id="cuisine" required minlength="3" type="text" name="cuisine" [(ngModel)]="newRestaurant['cuisine']" #cuisine="ngModel"
+                                   class="form-control">
+                            <div *ngIf="cuisine.invalid" class="alert alert-danger">
+                                <div *ngIf="cuisine['errors']['required']">Cuisine is required.</div>
+                                <div *ngIf="cuisine['errors']['min']">Cuisine must be greater than zero (0)</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button [disabled]="name['errors'] || cuisine['errors']" type="submit" class="btn btn-primary">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+        <!--<div class="col-2"></div>-->
+    </div>
+    <div class="row"></div>
+</div>
